@@ -3,18 +3,20 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 
 const app = express()
+const router = express.Router()
 
-app.use(bodyParser.urlencoded({extended:true}))
-app.use(bodyParser.json());
+router.use(bodyParser.urlencoded({extended:true}))
+router.use(bodyParser.json());
 
 
-app.use(cors())
+router.use(cors())
+
 
 type objConfig = {
   timestamp:number
 }
 
-app.post('/getDate', function (req, res) {
+router.get('/getDate', function (req, res) {
 
   const object = <objConfig>{}
 
@@ -23,6 +25,8 @@ app.post('/getDate', function (req, res) {
   res.json(object)
 
 })
+
+app.use('/', router)
 
 app.listen(8566, function () {
     console.log('Node server is running 8566..')
