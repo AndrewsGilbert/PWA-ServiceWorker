@@ -32,8 +32,8 @@
         "urls": ["http://localhost:8566/getDate"],
         "cacheConfig": {
             "maxSize": 100,
-            "maxAge": "1h",
-            "timeout": "5s",
+            "maxAge": "120s",
+            "timeout": "10s",
             "strategy": "freshness"
         }
     }

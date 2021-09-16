@@ -20,7 +20,9 @@ router.get('/getDate', function (req, res) {
 
   const object = <objConfig>{}
 
-   object.timestamp = Math.floor(new Date().getTime())
+  object.timestamp = Math.floor(new Date().getTime())
+
+  //res.set('Cache-Control', 'public, max-age=180');
 
   res.json(object)
 
